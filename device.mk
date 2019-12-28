@@ -39,7 +39,6 @@ PRODUCT_PACKAGES_DEBUG += \
 
 # Boot control HAL
 PRODUCT_PACKAGES += \
-    bootctrl.msm8953 \
     android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service
 
@@ -50,3 +49,9 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     libgptutils \
     libz \
     libcutils
+
+# Boot control HAL
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl.recovery \
+    bootctrl.msm8953 \
+    bootctrl.msm8953.recovery
