@@ -31,6 +31,33 @@ vendor/lib64/libaudioalsa.so
 vendor/lib64/libaudioparsers.so
 vendor/lib64/libqtigef.so
 
+# Audio-ACDB
+vendor/etc/acdbdata/brazil/Bluetooth_cal.acdb
+vendor/etc/acdbdata/brazil/General_cal.acdb
+vendor/etc/acdbdata/brazil/Global_cal.acdb
+vendor/etc/acdbdata/brazil/Handset_cal.acdb
+vendor/etc/acdbdata/brazil/Hdmi_cal.acdb
+vendor/etc/acdbdata/brazil/Headset_cal.acdb
+vendor/etc/acdbdata/brazil/Speaker_cal.acdb
+vendor/etc/acdbdata/common/Bluetooth_cal.acdb
+vendor/etc/acdbdata/common/General_cal.acdb
+vendor/etc/acdbdata/common/Global_cal.acdb
+vendor/etc/acdbdata/common/Handset_cal.acdb
+vendor/etc/acdbdata/common/Hdmi_cal.acdb
+vendor/etc/acdbdata/common/Headset_cal.acdb
+vendor/etc/acdbdata/common/Speaker_cal.acdb
+vendor/etc/acdbdata/MTP/msm8953-tasha-snd-card/MTP_WCD9335_workspaceFile.qwsp
+vendor/etc/acdbdata/QRD/msm8953-sku4-snd-card/QRD_SKU4_Bluetooth_cal.acdb
+vendor/etc/acdbdata/QRD/msm8953-sku4-snd-card/QRD_SKU4_General_cal.acdb
+vendor/etc/acdbdata/QRD/msm8953-sku4-snd-card/QRD_SKU4_Global_cal.acdb
+vendor/etc/acdbdata/QRD/msm8953-sku4-snd-card/QRD_SKU4_Handset_cal.acdb
+vendor/etc/acdbdata/QRD/msm8953-sku4-snd-card/QRD_SKU4_Hdmi_cal.acdb
+vendor/etc/acdbdata/QRD/msm8953-sku4-snd-card/QRD_SKU4_Headset_cal.acdb
+vendor/etc/acdbdata/QRD/msm8953-sku4-snd-card/QRD_SKU4_Speaker_cal.acdb
+
+# Audio Firmware
+vendor/firmware/tfa98xx.cnt
+
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
@@ -496,6 +523,17 @@ vendor/lib64/libscvePanorama_lite.so
 vendor/lib64/vendor.qti.hardware.scve.objecttracker@1.0.so
 vendor/lib64/vendor.qti.hardware.scve.panorama@1.0.so
 
+# Fingerprint
+vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-ets
+vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-ets.rc
+vendor/lib/vendor.egistec.hardware.fingerprint@2.0.so
+vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
+vendor/lib64/vendor.egistec.hardware.fingerprint@2.0.so
+vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
+vendor/lib64/vendor.egistec.hardware.fingerprint@2.0.so
+vendor/lib64/libets_fp_et5.so
+vendor/lib64/libets_teeclient.so
+
 # FM
 lib/fm_helium.so
 lib/libfm-hci.so
@@ -710,6 +748,9 @@ vendor/lib64/libOmxG711Dec.so
 vendor/lib64/libOmxQcelp13Dec.so
 vendor/lib64/libOmxVpp.so
 vendor/lib64/libOmxWmaDec.so
+
+# NFC
+vendor/lib64/libpn553_fw.so
 
 # Offmode charging
 vendor/bin/charge_only_mode
@@ -1081,6 +1122,7 @@ vendor/lib64/sensors.ssc.so
 vendor/bin/thermal-engine
 -vendor/lib/libthermalclient.so
 -vendor/lib64/libthermalclient.so
+vendor/lib64/libthermalioctl.so
 
 # Time services
 -vendor/app/TimeService/TimeService.apk;:timeservice_app_cert-legacy-um
