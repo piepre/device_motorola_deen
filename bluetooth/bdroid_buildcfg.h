@@ -29,8 +29,6 @@
 
 static inline const char* BtmGetDefaultName()
 {
-    char product_device[PROPERTY_VALUE_MAX];
-
     return "Motorola One";
 }
 
