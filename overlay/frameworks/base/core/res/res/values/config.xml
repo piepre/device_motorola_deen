@@ -501,4 +501,10 @@
          snapshots are disabled, and snapshots will only be stored at config_highResTaskSnapshotScale
          -->
     <item name="config_lowResTaskSnapshotScale" format="float" type="dimen">0.3</item>
+
+    <!-- Default state for LiveDisplay -->
+    <bool name="config_liveDisplayAvailable">true</bool>
+
+   <!-- Use default display mode -->
+    <integer name="config_defaultLiveDisplayMode">0</integer>
 </resources>
