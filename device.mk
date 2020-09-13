@@ -436,6 +436,7 @@ PRODUCT_COPY_FILES += \
 # Shims
 PRODUCT_PACKAGES += \
     libmemset_shim \
+    libcutils_shim \
     libqsap_shim
 
 # Soong
