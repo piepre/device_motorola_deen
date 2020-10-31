@@ -225,7 +225,6 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /vendor/firmware/image:firmware/image
 
 # Power
-BOARD_POWER_CUSTOM_BOARD_LIB := libpower_8953
 TARGET_HAS_NO_WLAN_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 
