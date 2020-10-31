@@ -491,9 +491,9 @@ PRODUCT_PACKAGES += \
     libgui_vendor \
     vndk_package
 
-# Weaver
-PRODUCT_PACKAGES += \
-    android.hardware.weaver@1.0
+
+
+
 
 # Wifi
 PRODUCT_COPY_FILES += \
