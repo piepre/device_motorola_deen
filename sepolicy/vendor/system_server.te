@@ -9,3 +9,5 @@ allow system_server vendor_idc_file:file r_file_perms;
 
 allow system_server hal_audio_default:binder { call transfer };
 allow system_server sysfs_battery_supply:file r_file_perms;
+
+get_prop(system_server, exported_camera_prop)
