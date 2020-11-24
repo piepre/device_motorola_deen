@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/revengeos_deen.mk
+    $(LOCAL_DIR)/potato_deen.mk
 
 COMMON_LUNCH_CHOICES := \
-    revengeos_deen-user \
-    revengeos_deen-userdebug \
-    revengeos_deen-eng
+    potato_deen-user \
+    potato_deen-userdebug \
+    potato_deen-eng
