@@ -1,3 +1,4 @@
+
 #
 # props for sdm632
 #
@@ -234,3 +235,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
+
+# dex2oat64
+PRODUCT_PROPERTY_OVERRIDES += \
+   dalvik.vm.dex2oat64.enabled=true \
+   ro.sys.fw.dex2oat_thread_count=8
