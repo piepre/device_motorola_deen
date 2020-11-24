@@ -82,10 +82,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.hw=1 \
     debug.sf.latch_unsignaled=1 \
     vendor.gralloc.enable_fb_ubwc=1 \
-    debug.sf.enable_gl_backpressure=1 \
+    debug.hwui.renderer=skiagl \
     dev.pm.dyn_samplingrate=1 \
     ro.opengles.version=196610 \
-    ro.qualcomm.cabl=0
+    ro.qualcomm.cabl=0 \
+    video.accelerate.hw=1 \
+    mm.enable.sec.smoothstreaming=true
 
 # Factory reset partition
 PRODUCT_PROPERTY_OVERRIDES += \
