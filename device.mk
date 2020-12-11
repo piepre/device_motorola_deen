@@ -139,7 +139,10 @@ PRODUCT_PACKAGES += \
     libbson.vendor \
     libxml2 \
     libwui \
-    Snap
+
+# MotCamera2
+PRODUCT_PACKAGES += \
+    MotCamera2 \
 
 # Codec2 modules
 PRODUCT_PACKAGES += \
