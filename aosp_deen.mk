@@ -39,10 +39,7 @@ PRODUCT_MODEL := Motorola One
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
         PRODUCT_NAME=deen \
-        PRIVATE_BUILD_DESC="deen-user 10 QPK30.54-22 6add release-keys"
+        PRIVATE_BUILD_DESC="laurel_sprout-user 10 QKQ1.190910.002 V11.0.23.0.QFQMIXM release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := "google/coral/coral:11/RP1A.200720.009/6720564:user/release-keys"
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=$(BUILD_FINGERPRINT)
+BUILD_FINGERPRINT := "Xiaomi/laurel_sprout/laurel_sprout:10/QKQ1.190910.002/V11.0.23.0.QFQMIXM:user/release-keys"
