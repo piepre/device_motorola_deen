@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/potato_deen.mk
+    $(LOCAL_DIR)/aosp_deen.mk
 
 COMMON_LUNCH_CHOICES := \
-    potato_deen-user \
-    potato_deen-userdebug \
-    potato_deen-eng
+    aosp_deen-user \
+    aosp_deen-userdebug \
+    aosp_deen-eng
