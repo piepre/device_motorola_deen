@@ -278,7 +278,7 @@ PRODUCT_PACKAGES += \
 
 # LineageActions
 PRODUCT_PACKAGES += \
-    LineageActions
+    MotoActions
 
 # Media
 PRODUCT_COPY_FILES += \
