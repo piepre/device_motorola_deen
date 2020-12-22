@@ -20,23 +20,4 @@
     <string name="menu_reset">Reset</string>
     <string name="kcal_color_temp">Color temperature (K)</string>
 
-    <!-- Vibrations -->
-    <string name="vibration_autocal_one_title">Spongy-ness</string>
-    <string name="vibration_autocal_two_title">Strength</string>
-    <string name="vibration_autocal_three_title">Springy-ness</string>
-    <string name="vibrations_customization_title">Vibration Calibration</string>
-    <string name="vibrations_customization_summary">Vibration driver calibration</string>
-    <string name="vibration_preset_default">Default</string>
-    <string name="vibration_preset_soft">Soft</string>
-    <string name="vibration_preset_balanced">Balanced</string>
-    <string name="vibration_preset_hard">Hard</string>
-    <string name="vibration_preset_gabispecial">"Gabi's Special"</string>
-    <string name="vibration_presets_list_title">Load Vibration Preset</string>
-
-    <!-- Misc -->
-    <string name="misc_led_brightness_title">Set max LED Brightness</string>
-    <string name="misc_panel_title">Misc Settings</string>
-    <string name="misc_panel_summary">Miscellaneous settings</string>
-    <string name="switch_breath_toggle_title">Disable LED Breathing</string>
-    <string name="switch_breath_toggle_summary">Do not allow the LED to breath</string>
 </resources>
