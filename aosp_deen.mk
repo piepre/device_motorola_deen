@@ -22,9 +22,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Inherit some common octavi stuff
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
-# Adding OctaviOS stuff
+# Adding PixelExperience stuff
 TARGET_GAPPS_ARCH := arm64
 TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_INCLUDE_LIVE_WALLPAPERS := false
 
 # Inherit from ocean device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
