@@ -45,21 +45,14 @@ TW_INCLUCE_CRYPTO_FBE := true
 TARGET_BOARD_PLATFORM := msm8953
 
 # Kernel
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci androidboot.hab.product=deen
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive androidboot.fastboot=1
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci earlycon=msm_hsl_uart,0x78af000 veritykeyid=id:5560e7863b4d8118c2f1b065595cf93bb2447992
+BOARD_KERNEL_CMDLINE += androidboot.fastboot=1
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
-LZMA_RAMDISK_TARGETS := recovery
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dt.img
-
-ifeq ($(strip $(TARGET_PREBUILT_KERNEL)),)
-TARGET_KERNEL_CONFIG := deen_defconfig
-TARGET_KERNEL_SOURCE := kernel/motorola/msm8953
-endif
+BOARD_KERNEL_TAGS_OFFSET := 0x00000100
+BOARD_RAMDISK_OFFSET := 0x01000000
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+TARGET_PREBUILT_KERNEL := device/motorola/deen/prebuilt/Image.gz-dtb
 
 # Partitions
 
@@ -102,7 +95,7 @@ TWRP_INCLUDE_LOGCAT := true
 endif
 
 TARGET_RECOVERY_DEVICE_MODULES += \
-	android.hardware.boot@1.0 \
+    android.hardware.boot@1.0 \
     libicuuc \
     libxml2 \
     libion \
