@@ -23,6 +23,13 @@ $(call inherit-product, vendor/omni/config/common.mk)
 # Inherit from deen device
 $(call inherit-product, device/motorola/deen/device.mk)
 
+# Platform
+TARGET_BOARD_PLATFORM := msm8953
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.keystore=$(TARGET_BOARD_PLATFORM) \
+    ro.hardware.bootctrl=$(TARGET_BOARD_PLATFORM)
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := deen
 PRODUCT_NAME := omni_deen
