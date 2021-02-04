@@ -84,6 +84,11 @@ TW_INCLUDE_CRYPTO := true
 TW_NEW_ION_HEAP := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_THEME := portrait_hdpi
+# Debugging (trip the flag)
+ifeq ($(strip $(TW_DEBUG_BUILD)),)
+TARGET_USES_LOGD := true
+TWRP_INCLUDE_LOGCAT := true
+endif
 
 TARGET_RECOVERY_DEVICE_MODULES += \
 	android.hardware.boot@1.0 \
