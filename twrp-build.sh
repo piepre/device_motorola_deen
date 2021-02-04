@@ -9,10 +9,6 @@ git config --global color.ui false
 # Sync the source
 repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
 repo sync  -f --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
-# Fix logcat 
-cd bootable/recovery 
-git fetch https://gerrit.twrp.me/android_bootable_recovery refs/changes/98/3298/2 && git cherry-pick FETCH_HEAD
-cd ~/TWRP-9
 # Clone device tree and common tree
 git clone --depth=1 https://github.com/100Daisy/twrp_device_motorola_deen -b android-9 device/motorola/deen
 # Build recovery image
