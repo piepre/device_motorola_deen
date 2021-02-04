@@ -24,10 +24,9 @@ cd ..
 # Rename and copy the files
 twrp_version=$(cat ~/TWRP-9/bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
 date_time=$(date +"%d%m%Y%H%M")
-device_version=$(cat ~/TWRP-9/device/motorola/deen/BoardConfig.mk | grep "TW_DEVICE_VERSION :=" | sed 's/ //g' | cut -f2 -d'=' -s)
 mkdir ~/final
-cp recovery.img ~/final/twrp-$twrp_version-"$device_version"-deen-"$date_time"-unofficial.img
-cp recovery-installer.zip ~/final/twrp-$twrp_version-"$device_version"-deen-"$date_time"-unofficial.zip
+cp recovery.img ~/final/twrp-$twrp_version-deen-"$date_time"-unofficial.img
+cp recovery-installer.zip ~/final/twrp-$twrp_version-deen-"$date_time"-unofficial.zip
 # Upload to oshi.at
 curl -T ~/final/*.img https://oshi.at 
 curl -T ~/final/*.zip https://oshi.at
