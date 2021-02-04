@@ -7,14 +7,14 @@ git config --global user.email "50962670+LinkBoi00@users.noreply.github.com"
 git config --global user.name "LinkBoi00"
 git config --global color.ui false
 # Sync the source
-repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-8.1
+repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
 repo sync  -f --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
 # Fix logcat 
 cd bootable/recovery 
 git fetch https://gerrit.twrp.me/android_bootable_recovery refs/changes/98/3298/2 && git cherry-pick FETCH_HEAD
 cd ~/TWRP-9
 # Clone device tree and common tree
-git clone --depth=1 https://github.com/LinkBoi00/twrp_device_motorola_deen -b android-8.1 device/motorola/deen
+git clone --depth=1 https://github.com/100Daisy/twrp_device_motorola_deen -b android-9 device/motorola/deen
 git clone --depth=1 https://github.com/TeamWin/android_device_qcom_common -b android-8.1 device/qcom/common
 # Build recovery image
 export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_deen-eng; make -j$(nproc --all) recoveryimage
