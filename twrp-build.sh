@@ -15,7 +15,6 @@ git fetch https://gerrit.twrp.me/android_bootable_recovery refs/changes/98/3298/
 cd ~/TWRP-9
 # Clone device tree and common tree
 git clone --depth=1 https://github.com/100Daisy/twrp_device_motorola_deen -b android-9 device/motorola/deen
-git clone --depth=1 https://github.com/TeamWin/android_device_qcom_common -b android-8.1 device/qcom/common
 # Build recovery image
 export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_deen-eng; make -j$(nproc --all) recoveryimage
 # Make the recovery installer
