@@ -3,8 +3,8 @@
 # Go to the working directory
 mkdir ~/TWRP-9 && cd ~/TWRP-9
 # Configure git
-git config --global user.email "50962670+LinkBoi00@users.noreply.github.com"
-git config --global user.name "LinkBoi00"
+git config --global user.email "100Daisy@protonmail.com"
+git config --global user.name "GitDaisy"
 git config --global color.ui false
 # Sync the source
 repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
