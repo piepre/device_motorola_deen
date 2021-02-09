@@ -12,6 +12,7 @@ repo sync  -f --force-sync --no-clone-bundle --no-tags -j$(nproc --all)
 # Clone device tree and common tree
 git clone --depth=1 https://github.com/100Daisy/twrp_device_motorola_deen -b android-9 device/motorola/deen
 git clone --depth=1 https://github.com/100Daisy/android_kernel_motorola_deen -b twrp kernel/motorola/msm8953
+git clone --depth=1 https://github.com/osm0sis/twrp_abtemplate device/motorola/deen/installer
 # Build recovery image
 export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_deen-eng; make -j$(nproc --all) recoveryimage
 # Make the recovery installer
