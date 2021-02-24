@@ -1,5 +1,15 @@
 genfscon debugfs /wlan0   u:object_r:debugfs_wlan:s0
 
+# sysfs
+genfscon sysfs /devices/soc/6a00000.ssusb/power_supply                u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/soc/7600000.hsusb/power_supply                u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/soc/75b5000.i2c/i2c-7/7-0022/power_supply     u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/soc/msm-bcl-15/power_supply                   u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/soc/soc:qcom,bcl/power_supply                 u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/soc/qpnp-fg-18                                u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/soc/qpnp-smbcharger-17/power_supply           u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/soc/qpnp-smbcharger-17/power_supply/battery/system_temp_level u:object_r:sysfs_battery_supply:s0
+
 genfscon sysfs /devices/virtual/hwmon                                         u:object_r:sysfs_hwmon:s0
 genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-02/200f000.qcom,spmi:qcom,pmi632@2:vadc@3100/hwmon  u:object_r:sysfs_hwmon:s0
 
