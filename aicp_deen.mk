@@ -19,12 +19,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inherit some common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-$(call inherit-product, vendor/lineage/config/aosp_audio.mk)
-$(call inherit-product, vendor/lineage/config/lineage_audio.mk)
+# Inherit some common aicp stuff
+$(call inherit-product, vendor/aicp/config/common_full_phone.mk)
+$(call inherit-product, vendor/aicp/config/aosp_audio.mk)
 
-# Inherit from ocean device
+# Inherit from device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
 TARGET_BOOT_ANIMATION_RES := 1080
@@ -32,15 +31,15 @@ TARGET_BOOT_ANIMATION_RES := 1080
 PRODUCT_BRAND := motorola
 PRODUCT_DEVICE := deen
 PRODUCT_MANUFACTURER := motorola
-PRODUCT_NAME := lineage_deen
+PRODUCT_NAME := aicp_deen
 PRODUCT_MODEL := Motorola One
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-        PRODUCT_NAME=deen \
+        PRODUCT_NAME="Motorola One" \
+        TARGET_DEVICE="deen" \
         PRIVATE_BUILD_DESC="deen-user 10 QPK30.54-22 6add release-keys"
 
-# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := "google/coral/coral:11/RP1A.200720.009/6720564:user/release-keys"
+BUILD_FINGERPRINT := google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=$(BUILD_FINGERPRINT)
+PRODUCT_OVERRIDE_INFO := true
+PRODUCT_OVERRIDE_FINGERPRINT := google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys
