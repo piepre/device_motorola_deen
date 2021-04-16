@@ -145,6 +145,13 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
 #    MotCamera2 \
 
+# GAPPS
+ifeq ($(WITH_GAPPS), true)
+# Remove unwanted packages
+PRODUCT_PACKAGES += \
+    RemovePackages
+endif
+
 # Codec2 modules
 PRODUCT_PACKAGES += \
     com.android.media.swcodec \
