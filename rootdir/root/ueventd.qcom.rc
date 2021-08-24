@@ -25,11 +25,6 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-# Firmware directory Path
-# Below macro will be read by uevent and path will
-# be added to search path for firmware loading
-firmware_directories /vendor/firmware_mnt/image/
-
 # the DIAG device node is not world writable/readable.
 /dev/diag                 0666   system     oem_2901
 /dev/ttydiag0             0660   system     oem_2901
@@ -306,6 +301,7 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/wigig_sensing        0660   system     system
 
 #nfc permissions
+/dev/st21nfc              0660    nfc         nfc
 /dev/nfc-nci              0660    nfc         nfc
 /dev/nq-nci               0660    nfc         nfc
 /dev/assd                 0660    nfc         nfc

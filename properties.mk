@@ -63,23 +63,27 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-vidc.enc.dcvs.extra-buff-count=2 \
-media.camera.ts.monotonic=1 \
-persist.vendor.camera.display.lmax=1280x720 \
-persist.vendor.camera.display.umax=1920x1080 \
-vendor.camera.hal1.packagelist=com.skype.raider,com.whatsapp,com.instagram.android \
-vendor.camera.lowpower.record.enable=1 \
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.google.android.GoogleCamera \
-vendor.camera.aux.packagelist2=com.android.systemui,com.huaqin.cameraautotest,com.huaqin.runtime \
-vendor.camera.aux.packageblacklist=com.discord \
-persist.vendor.qti.telephony.vt_cam_interface=2 \
-persist.vendor.camera.dual.camera=0 \
-persist.vendor.camera.eis.enable=1 \
-persist.vendor.camera.gyro.disable=0 \
-persist.vendor.camera.isp.clock.optmz=0 \
-persist.vendor.camera.stats.test=5 \
-persist.vendor.camera.CDS=off \
-persist.camera.HAL3.enabled=1
+    vidc.enc.dcvs.extra-buff-count=2 \
+    media.camera.ts.monotonic=1 \
+    persist.vendor.camera.display.lmax=1280x720 \
+    persist.vendor.camera.display.umax=1920x1080 \
+    vendor.camera.hal1.packagelist=com.skype.raider,com.whatsapp,com.instagram.android \
+    vendor.camera.lowpower.record.enable=1 \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.google.android.GoogleCamera \
+    vendor.camera.aux.packagelist2=com.android.systemui,com.huaqin.cameraautotest,com.huaqin.runtime \
+    vendor.camera.aux.packageblacklist=com.discord \
+    persist.vendor.qti.telephony.vt_cam_interface=2 \
+    persist.vendor.camera.dual.camera=0 \
+    persist.vendor.camera.eis.enable=1 \
+    persist.vendor.camera.gyro.disable=0 \
+    persist.vendor.camera.isp.clock.optmz=0 \
+    persist.vendor.camera.stats.test=5 \
+    persist.vendor.camera.CDS=off \
+    persist.camera.HAL3.enabled=1
+
+# Charger
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.charger.enable_suspend=true
 
 # Codec2 switch
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -92,16 +96,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.hwc_set_default_colormode=true \
-    debug.sf.enable_hwc_vds=1 \
     debug.sf.hw=1 \
-    debug.sf.latch_unsignaled=1 \
+    debug.sf.latch_unsignaled=0 \
     vendor.gralloc.enable_fb_ubwc=1 \
-    debug.hwui.renderer=skiagl \
+    debug.sf.enable_gl_backpressure=1 \
     dev.pm.dyn_samplingrate=1 \
     ro.opengles.version=196610 \
-    ro.qualcomm.cabl=0 \
-    video.accelerate.hw=1 \
-    mm.enable.sec.smoothstreaming=true
+    ro.qualcomm.cabl=0
 
 # DRM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -200,7 +201,7 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.cne.feature=1 \
     persist.vendor.dpm.feature=0 \
     DEVICE_PROVISIONED=1 \
-    ril.subscription.types=NV,RUIM \
+    ril.subscription.types=RUIM \
     telephony.lteOnCdmaDevice=1
 
 # Sensors
@@ -219,12 +220,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # SurfaceFlinger
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.max_virtual_display_dimension=4096 \
     ro.surface_flinger.protected_contents=true \
-    ro.surface_flinger.vsync_event_phase_offset_ns=4000000 \
-    ro.surface_flinger.vsync_sf_event_phase_offset_ns=8000000 \
     ro.surface_flinger.has_wide_color_display=true \
     ro.surface_flinger.use_color_management=true
 
@@ -239,15 +238,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
-
-# dex2oat64
-PRODUCT_PROPERTY_OVERRIDES += \
-   dalvik.vm.dex2oat64.enabled=true \
-   ro.sys.fw.dex2oat_thread_count=8
-
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.sf.lcd_density=320
-
-# Always use GPU for screen compositing
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.sf.disable_hwc_overlays=1

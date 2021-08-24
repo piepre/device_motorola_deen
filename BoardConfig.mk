@@ -43,21 +43,24 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a53
-ARCH_ARM_HAVE_TLS_REGISTER := true
 
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOOTLOADER_BOARD_NAME := SDM632
 TARGET_BOARD_PLATFORM := msm8953
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno506
-TARGET_HAS_NO_SELECT_BUTTON := true
 
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
-TARGET_USES_64_BIT_BINDER := true
 
-BUILD_BROKEN_DUP_RULES := true 
-BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
+BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_PREBUILT_ELF_FILES := true
+
+# A/B updater
+AB_OTA_UPDATER := true
+
+AB_OTA_PARTITIONS += \
+    boot \
+    system \
+    vendor
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -116,7 +119,6 @@ AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
-QCOM_BT_USE_BTNV := true
 
 # Boot Animtion
 TARGET_BOOTANIMATION_HALF_RES := true
@@ -126,7 +128,6 @@ USE_CAMERA_STUB := true
 TARGET_USES_QTI_CAMERA_DEVICE := true
 
 # Charger
-BOARD_CHARGER_ENABLE_SUSPEND := true
 WITH_LINEAGE_CHARGER := false
 
 # Display
@@ -140,21 +141,11 @@ TARGET_USES_GRALLOC1 := true
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
 
-# Enable dexpreopt to speed boot time
-ifeq ($(HOST_OS),linux)
-    ifneq ($(TARGET_BUILD_VARIANT),eng)
-        ifeq ($(WITH_DEXPREOPT),)
-            WITH_DEXPREOPT := true
-        endif
-    endif
-endif
-
 # FM
 BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # GPS
-TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 LOC_HIDL_VERSION := 3.0
@@ -162,7 +153,6 @@ LOC_HIDL_VERSION := 3.0
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
-#DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 TARGET_FS_CONFIG_GEN += \
     $(DEVICE_PATH)/config.fs \
     $(DEVICE_PATH)/mot_aids.fs
@@ -170,6 +160,9 @@ TARGET_FS_CONFIG_GEN += \
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_deen
 TARGET_RECOVERY_DEVICE_MODULES := libinit_deen
+
+# Display
+TARGET_SCREEN_DENSITY := 320
 
 # Kernel
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom ehci-hcd.park=3 lpm_levels.sleep_disabled=1
@@ -183,7 +176,6 @@ BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET := 0x01000000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-#BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/motorola/deen
 TARGET_KERNEL_CONFIG := deen_defconfig
@@ -193,6 +185,10 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_ADDITIONAL_FLAGS := \
     DTC=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/dtc/dtc \
     MKDTIMG=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/libufdt/mkdtimg
+
+# Kernel
+TARGET_KERNEL_ADDITIONAL_FLAGS := \
+    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
 
 # Declare boot header
 BOARD_BOOT_HEADER_VERSION := 1
@@ -212,19 +208,11 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 55104748544 # 53813231 * 1024 mmcblk0p54
 BOARD_VENDORIMAGE_PARTITION_SIZE := 536870912    #   524288 * 1024 mmcblk0p58
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_USES_RECOVERY_AS_BOOT := true
-TARGET_EXFAT_DRIVER := exfat
 TARGET_NO_RECOVERY := true
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-TARGET_USES_MKE2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
-BOARD_ROOT_EXTRA_SYMLINKS := \
-    /mnt/vendor/persist:/persist \
-    /vendor/firmware:/firmware \
-    /vendor/dsp:/dsp \
-    /vendor/firmware/image:firmware/image
 
 # Power
 TARGET_HAS_NO_WLAN_STATS := true
@@ -247,18 +235,15 @@ VENDOR_SECURITY_PATCH := 2019-11-01
 
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
-BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/
-#BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
-
-# Timeservice
-BOARD_USES_QC_TIME_SERVICES := true
+BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
 # Treble
 BOARD_VNDK_VERSION := current
 
 # Verified Boot
 BOARD_AVB_ENABLE := false
-BOARD_BUILD_DISABLED_VBMETAIMAGE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -272,5 +257,6 @@ BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WIFI_DRIVER_FW_PATH_AP  := "ap"
 WIFI_DRIVER_FW_PATH_P2P := "p2p"
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 TARGET_DISABLE_WCNSS_CONFIG_COPY := true
 PRODUCT_VENDOR_MOVE_ENABLED := true

@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/octavi_deen.mk
+    $(LOCAL_DIR)/aicp_deen.mk
 
 COMMON_LUNCH_CHOICES := \
-    octavi_deen-user \
-    octavi_deen-userdebug \
-    octavi_deen-eng
+    aicp_deen-user \
+    aicp_deen-userdebug \
+    aicp_deen-eng
