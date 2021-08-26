@@ -246,7 +246,7 @@ BOARD_ROOT_EXTRA_FOLDERS := persist fsg
 VENDOR_SECURITY_PATCH := 2019-11-01
 
 # SELinux
-device/qcom/sepolicy-legacy-um/SEPolicy.mk
+include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/
 #BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 
