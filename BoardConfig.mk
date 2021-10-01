@@ -202,7 +202,10 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 BOARD_ROOT_EXTRA_SYMLINKS := \
-    /mnt/vendor/persist:/persist
+    /mnt/vendor/persist:/persist \
+    /vendor/firmware:/firmware \
+    /vendor/dsp:/dsp \
+    /vendor/firmware/image:firmware/image
 
 # Power
 TARGET_HAS_NO_WLAN_STATS := true
@@ -217,15 +220,14 @@ CUSTOM_APNS_FILE := $(DEVICE_PATH)/configs/sprint_apns.xml
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
 # Root
-BOARD_ROOT_EXTRA_FOLDERS := persist
+BOARD_ROOT_EXTRA_FOLDERS := persist fsg
 
 # Vendor Security Patch Level
 VENDOR_SECURITY_PATCH := 2019-11-01
 
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/
 
 # Treble
 BOARD_VNDK_VERSION := current

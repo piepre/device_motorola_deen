@@ -1,0 +1,4 @@
+/avb(/.*)?               u:object_r:avb_file:s0
+/fsg(/.*)?               u:object_r:fsg_firmware_file:s0
+/firmware(/.*)?          u:object_r:firmware_file:s0
+/persist(/.*)?           u:object_r:mnt_vendor_file:s0
