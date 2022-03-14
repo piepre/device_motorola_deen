@@ -34,7 +34,7 @@ PRODUCT_NAME := lineage_deen
 PRODUCT_MODEL := motorola one
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-        PRODUCT_NAME= "deen" \
+        PRODUCT_NAME="deen" \
         PRIVATE_BUILD_DESC="deen-user 10 QPK30.54-22 6add release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
